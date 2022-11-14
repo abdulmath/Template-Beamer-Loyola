@@ -1,0 +1,178 @@
+% Abdul Lugo (IPL) presentation theme for beamer
+%
+% Abdul Lugo <alugo@ipl.edu.do>, 2022
+%
+% Changelog:
+%
+% Version 1.0:
+
+\ProvidesPackage{beamerthemeIPL}[2022/11/02]
+
+% Define colors
+\definecolor{IPLGris}{RGB}{218,218,218}
+\definecolor{IPLAzul}{RGB}{44,46,131}
+\definecolor{COILVerde}{RGB}{64,185,60}
+\definecolor{azulF}{RGB}{0,75,141}
+\definecolor{Naranja}{RGB}{236,128,30}
+\definecolor{Verde}{RGB}{73,170,66}
+\definecolor{grisF}{rgb}{.6,.6,.6}
+\definecolor{grisD}{rgb}{.3,.3,.3}
+\definecolor{aquamarine}{rgb}{0.5, 1.0, 0.83}
+% Outer theme with sides
+\useoutertheme[width=.15\paperwidth]{sidebar}
+
+% Define height of head regular frames
+\setlength{\beamer@headheight}{.15\paperheight}
+%Declare Images
+% Image for bottom-left regular frame
+\pgfdeclareimage[width=.12\paperwidth]{small-logo1}{./figuras/LogoCOIL800px}
+% Image for top-left regular frame
+\pgfdeclareimage[width=.12\paperwidth]{small-logo}{./figuras/LogoLOYOLA.png}
+%Image for title frame
+\pgfdeclareimage[width=.5\paperwidth]{type-logo}{./figuras/Encabezado}
+%Image for final frame
+\pgfdeclareimage[width=.35\paperwidth]{white-logo}{./figuras/LogoCOIL800px}
+% Image for bottom-right title frame
+\pgfdeclareimage[width=.25\paperwidth]{large-corner}{large-corner}
+%Image for top-right regular frame
+\pgfdeclareimage[height=\beamer@headheight]{small-corner}{small-corner}
+
+% Declare sidebar navigation for regular frames
+\setbeamertemplate{sidebar left}{%
+\vskip 5pt
+\insertverticalnavigation{\beamer@sidebarwidth}%
+}
+
+% Declare foot line for regular frame
+\setbeamertemplate{footline}[text line]{%
+\insertshortauthor\strut\hfill\insertshorttitle\hfill\insertshortdate\hspace{4em}
+\insertframenumber/\inserttotalframenumber}
+
+%% Declare regular frame title and side
+\addtobeamertemplate{frametitle}{}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{\beamer@headheight+18pt}
+% Image at top-right
+\pgftext[at=\pgfpoint{\paperwidth}{-\beamer@headheight},right,base]{\pgfuseimage{small-corner}}
+% Line between logo space and title
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{0pt}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-\beamer@headheight}}
+\pgfsetlinewidth{5pt}
+\pgfsetinnerlinewidth{1pt}
+\pgfsetinnerstrokecolor{IPLAzul!70}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+% Line between frame content and navigation
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.18\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.97\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetinnerlinewidth{0pt}
+\pgfsetcolor{IPLAzul}
+\pgfusepath{stroke}
+% Image on top-left
+\pgftext[at=\pgfpoint{.07\paperwidth}{-.115\paperheight},center,base]{\pgfuseimage{small-logo}}
+% Image on bottom-left
+\pgftext[at=\pgfpoint{.075\paperwidth}{-.97\paperheight},center,base]{\pgfuseimage{small-logo1}}
+\end{pgfpicture}%
+\vskip-25pt%
+}
+
+\addtobeamertemplate{title page}{%
+\usebeamertemplate{title background}%
+\vskip .20\paperheight%
+}
+{}
+
+%% Title template background
+\newcommand\DoPurpleBackground{%
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-\paperheight}}
+% Background color
+\pgfsetfillcolor{IPLAzul}
+\pgfusepath{fill}
+% Large corner
+\pgftext[at=\pgfpoint{\paperwidth}{-\paperheight},right,base]{\pgfuseimage{large-corner}}
+}
+
+\setbeamertemplate{title background}{%
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoPurpleBackground
+
+% White bar across top
+\pgfpathmoveto{\pgfpointorigin}
+\pgfpathrectanglecorners{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{-.20\paperheight}}
+\pgfsetfillcolor{white}
+\pgfusepath{fill}
+
+% Logo
+\pgftext[at=\pgfpoint{.024\paperwidth}{-.15\paperheight},left,base]{\pgfuseimage{type-logo}}
+
+% short bar on left
+\pgfpathrectanglecorners{\pgfpoint{0pt}{-.17\paperheight}}{\pgfpoint{.15\paperwidth}{-.19\paperheight}}
+\pgfsetfillcolor{IPLAzul}
+\pgfusepath{fill}
+
+% Followed by long bar on right
+\pgfpathrectanglecorners{\pgfpoint{.15\paperwidth}{-.17\paperheight}}{\pgfpoint{\paperwidth}{-.19\paperheight}}
+\pgfsetfillcolor{IPLGris}
+\pgfusepath{fill}
+
+% A stroke down the middle
+\pgfpathmoveto{\pgfpoint{.15\paperwidth}{-.21\paperheight}}
+\pgfpathlineto{\pgfpoint{.15\paperwidth}{-.93\paperheight}}
+\pgfsetlinewidth{1pt}
+\pgfsetcolor{white}
+\pgfusepath{stroke}
+
+\pgftext[at=\pgfpoint{.16\paperwidth}{-.92\paperheight},left,base]{\tiny \textcolor{COILVerde}{Nombre del Evento: Transformación Digital}}
+\end{pgfpicture}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+\setlength{\leftmargini}{.5em}
+\setlength{\leftmarginii}{1.0em}
+\setlength{\leftmarginiii}{1.5em}
+\setlength{\leftmarginiv}{2.0em}
+\setlength{\leftmarginv}{2.5em}
+\setlength{\leftmarginvi}{3.0em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme{rose}
+\setbeamercolor{title page}{fg=white}
+\setbeamercolor{logo}{bg=IPLGris}
+\setbeamercolor{frametitle}{fg=white,bg=IPLAzul}
+\setbeamercolor{section in sidebar}{fg=black,bg=IPLGris}
+\setbeamercolor{subsection in sidebar}{fg=black,bg=IPLGris}
+\setbeamerfont{section in sidebar}{series=\bfseries}
+\setbeamercolor{block title}{bg=IPLAzul!20!white,fg=IPLAzul}
+\setbeamercolor{block body}{bg=IPLGris!40!white}
+\setbeamercolor{itemize item}{fg=IPLAzul}
+\setbeamercolor{structure}{fg=IPLAzul!80}
+\setbeamercolor{title}{fg=white}
+
+
+\newcommand\ThankYouFrame{
+\begin{frame}[plain,t]
+\begin{pgfpicture}
+\pgf@relevantforpicturesizefalse
+\pgftransformxshift{-\Gm@lmargin}
+\pgftransformyshift{5.5pt}
+\DoPurpleBackground
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.5\paperheight},center,center]{\pgfuseimage{white-logo}}
+\pgftext[at=\pgfpoint{.5\paperwidth}{-.2\paperheight},center,center]{\huge\textcolor{white}{Muchas gracias}}
+\pgftext[at=\pgfpoint{.3\paperwidth}{-.9\paperheight},center,center]{\small\textcolor{white}{\insertshortauthor}}
+\end{pgfpicture}
+\end{frame}
+}

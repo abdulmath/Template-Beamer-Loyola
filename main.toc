@@ -1,0 +1,9 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Modelación matemática}{13}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definición}{17}{0}{1}
+\beamer@subsectionintoc {1}{2}{Algortimo de un MM}{21}{0}{1}
+\beamer@sectionintoc {2}{Ejemplos de modelado}{28}{0}{2}
+\beamer@subsectionintoc {2}{1}{Mecánica newtoniana}{28}{0}{2}
+\beamer@sectionintoc {3}{Las matemáticas en la Ingeniería}{30}{0}{3}
+\beamer@subsectionintoc {3}{1}{?`Que ocurre?}{30}{0}{3}
+\beamer@subsectionintoc {3}{2}{Beneficios de la modelación matemática}{34}{0}{3}

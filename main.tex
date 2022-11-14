@@ -1,0 +1,208 @@
+\documentclass[11pt]{beamer}
+\usetheme{IPL}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,mindmap}
+\usetikzlibrary{arrows,positioning}
+\usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing, decorations.shapes} 
+\usepackage{multicol}
+\decimalpoint
+%% Use any fonts you like.
+\usepackage{times}
+\setbeamercolor{Verde}{bg=COILVerde}
+\setbeamercolor{Azul}{bg=IPLAzul}
+\setbeamercolor{Gris}{bg=IPLGris}
+\setbeamercolor{Orange}{bg=Naranja}
+\setbeamercolor{Agua}{bg=aquamarine}
+\setbeamercolor{Rojo}{bg=red}
+\title{La modelación Matemática}
+\subtitle{en la ingeniería}
+\author{Abdul Abner Lugo Jiménez, PhD.}
+\date{\today}
+\institute{\url{alugo@ipl.edu.do}}
+
+\begin{document}
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+\begin{frame}[plain,t]
+\titlepage
+\end{frame}
+
+\begin{frame}{Iniciemos con una pregunta}
+\onslide<1->{\fcolorbox{IPLAzul}{COILVerde}{?`Por qué un año dura $365$ días?}}\\
+\onslide<2>{Sobre este sistema actúan muchos elementos, pero haremos mención sobre dos de ellos: la 
+\fcolorbox{white}{red}{\textcolor{white}{\textbf{velocidad orbital}}} y la 
+\fcolorbox{white}{IPLAzul}{\textcolor{white}{\textbf{velocidad tangencial}}}}
+\end{frame}
+
+\begin{frame}{Ecuaciones de las velocidades}
+\begin{block}{Velocidad orbital y tangencial}
+\begin{multicols}{2}
+\begin{equation*}
+V_{orbital}=\sqrt{\dfrac{G\cdot M_{s}}{r}}
+\end{equation*}\pause
+\begin{equation*}
+V_{tangencial}=\omega\cdot r=\dfrac{2\pi}{T}\cdot r
+\end{equation*}
+\end{multicols}
+\end{block}\pause
+donde:
+\begin{itemize}[<+-| alert@+>]
+     \item $G$ es la constante gravitacional: $6.674\times10^{-11}\;N\frac{m^2}{kg^2}$
+     \item $r$ es la distancia media entre la Tierra y el Sol: $1.496\times10^{11}\;m$
+     \item $M_s$ es la masa del Sol: $1.989\times10^{30}\;kg$
+     \item $T$ es el tiempo
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Calculemos el tiempo}
+\begin{center}
+{\fboxsep 12pt\fcolorbox {COILVerde}{COILVerde}{
+\begin{minipage}[t]{4cm}
+\begin{equation*}
+\textcolor{white}{\pmb{T=2\pi\sqrt{\dfrac{r^3}{G\cdot M_s}}}}
+\end{equation*}
+\end{minipage}}}
+\end{center}\pause
+
+\begin{equation*}
+\begin{split}
+\textcolor{azulF}{\pmb{T=}}\;&\textcolor{azulF}{\pmb{2\pi\sqrt{\dfrac{(1.496\times10^{11}\;m)^3}{\left(6.674 
+\times10^{-11}\;N\dfrac{m^2}{kg^2}\right)\cdot(1.989\times10^{30}\;kg)}}}}\\
+\textcolor{azulF}{\pmb{\approx}}& \textcolor{azulF}{\pmb{31.554.894,53\;seg}}
+\end{split}
+\end{equation*}\pause
+\begin{equation*}
+\begin{split}
+\textcolor{grisD}{\pmb{31.554.894,53\;seg}}&\textcolor{grisD}{\pmb{\left(\dfrac{1\;min}{60\;seg}\right)\left(\dfrac{
+1\;hr}{60\;min}\right)\left(\dfrac{1\;\text{día}}{ 24\;hr}\right)}}\\
+&\fcolorbox{red}{red}{\textcolor{white}{$\approx 365,242189\;\text{días}$}}
+\end{split}
+\end{equation*}
+
+\end{frame}
+
+\section{Modelación matemática}
+\begin{frame}
+\frametitle{Modelación matemática}
+\framesubtitle{Introducción}
+\begin{beamercolorbox}[wd={10cm},sep=1mm,left,rounded=true,shadow=true]{Azul}
+\textcolor{white}{Las} \textcolor{red}{\textbf{leyes del universo}} \textcolor{white}{están escritas en el lenguaje de 
+las matemáticas.} \pause \textcolor{white}{El álgebra es suficiente para resolver muchos problemas estáticos.}
+\end{beamercolorbox}\pause
+
+\begin{beamercolorbox}[wd={10cm},sep=1mm,left,rounded=true,shadow=true]{Orange}
+\textcolor{white}{Es natural que las ecuaciones que involucran estos cambios se usen frecuentemente para describir el 
+universo cambiante.} \pause \textcolor{white}{Cada una de estas ecuaciones que relaciona una función desconocida con 
+una o más de sus derivadas la llamamos una \textcolor{red}{ecuación diferencial}.}
+\end{beamercolorbox}
+\end{frame}
+
+
+\subsection{Definición}
+\begin{frame}
+\frametitle{Modelado matemático}
+\framesubtitle{Definición}
+El primer objetivo es lo que se conoce como \textcolor{red}{\textbf{modelado matemático}}, \pause el cual es crucial 
+para formular una ecuación o sistema de ecuaciones que describa el problema físico que se quiere modelar.\\[2mm]\pause
+
+El mismo involucra lo siguiente:
+\begin{enumerate}[<+-| alert@+>]
+    \item La formulación en términos matemáticos de un problema físico derivado de un fenómeno físico.
+    \item La construcción de un modelo matemático.
+\end{enumerate}
+\end{frame}
+
+\subsection{Algortimo de un MM}
+\begin{frame}
+\frametitle{Modelado Matemático}
+\framesubtitle{Algorítmo de una modelado matemático}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=.2cm, auto]  
+\tikzset{
+    mynode/.style={rectangle,rounded corners,line width=1pt,draw=azulF, top color=IPLAzul, bottom color=IPLAzul, inner 
+sep=1em, minimum size=2em, text centered},
+    myarrow/.style={Naranja,->, >=latex', line width=2pt},
+    mylabel/.style={text width=7em, text centered} 
+}  
+\node[mynode] (problema) {\textcolor{white}{Problema Físico}};\pause  
+\node[below=3cm of problema] (dummy) {};
+\node[mynode, left=of dummy] (modelo) {\textcolor{white}{Modelo Matemático}};
+\draw[myarrow] (problema.west) -- ++(-.3,0) -- ++(0,-2) -|  (modelo.north);\pause
+\node[mylabel, below left=of problema] (label1) {Formulación matemática}; \pause
+\node[mynode, right=of dummy] (resultados) {\textcolor{white}{Resultados}};\pause
+\draw[COILVerde,<->, >=latex',  line width=2pt, bend right=50, dashed] 
+    (modelo.south) to node[auto, swap] {Análisis Matemático}(resultados.south);\pause
+\draw[myarrow] (resultados.east) -- ++(.5,0) -- ++(0,2) -|  (problema.south);\pause
+\node[mylabel, below right=of problema] (label2) {Interpretación};
+\end{tikzpicture} 
+\end{figure}
+\end{frame}
+
+\section{Ejemplos de modelado}
+\subsection{Mecánica newtoniana}
+\begin{frame}
+\frametitle{Ejemplos de modelado}
+\framesubtitle{Mecánica newtoniana}
+\begin{figure}[H]
+\begin{tikzpicture}
+\draw[grisD,line width=1pt] (0,0.45) -- (8,0.45);
+\draw[grisD,line width=1pt] (0,0.45) -- (0,4);
+\draw[grisD!30,fill=grisD!30] (-.25,.20) rectangle (8,.44);
+\draw[grisD!30,fill=grisD!30] (-.25,.20) rectangle (-.015,4);
+\draw[red,line width=1pt] (4,0.5) -- (4,2.5) -- (6,2.5) -- (6,.5) -- cycle;
+\draw[red] (5,1.5) node {$m$};
+\draw[azulF,line width=1pt,->] (6,1.5) -- (7.5,1.5);
+\draw[red,above] (6.75,1.5) node {$F(t)$};
+\draw[azulF,line width=1pt] (5,2.5) -- (5,3);
+\draw[azulF,line width=1pt,->] (5,3) -- (6.5,3);
+\draw[red,above] (5.75,3) node {$x(t)$};
+\draw[Verde,line width=1pt] (0,1.5) -- (.5,1.5);
+\draw[decorate,decoration={coil,segment length=4pt},line width=1pt,Verde] (.5,1.5) -- (3.5,1.5);
+\draw[Verde,line width=1pt] (3.5,1.5) -- (4,1.5);
+\draw[red,above] (2,1.5) node {$k$};
+\end{tikzpicture}
+\end{figure}\pause
+
+\begin{block}{Sistema masa-resorte}
+\begin{equation}
+F(t)=m\cdot\dfrac{d^2x(t)}{dt^2}+k\cdot x(t)
+\end{equation}
+\end{block}
+\end{frame}
+
+\section{Las matemáticas en la Ingeniería}
+\subsection{?`Que ocurre?}
+\begin{frame}
+\frametitle{Las matemáticas en la Ingeniería}
+\framesubtitle{?`Que ocurre?}
+\begin{beamercolorbox}[wd={10cm},sep=1mm,rounded=true,shadow=true]{Orange}
+Los estudiantes de ingeniería no ven la aplicación inmediata de la matemática;  \pause esto tiene su causa en la desarticulación entre los cursos básicos de matemáticas y los cursos subsiguientes.
+\end{beamercolorbox}
+\vspace{4mm}\pause
+
+\begin{beamercolorbox}[wd={10cm},sep=1mm,rounded=true,shadow=true]{Verde}
+Los cursos de matemáticas, y sus textos guía, no tienen como principal objetivo trabajar con cuestiones o sobre modelación matemática provenientes de situaciones reales, \pause sino
+que tratan situaciones artificiales, diseñadas exclusivamente para el aula.
+\end{beamercolorbox}
+\end{frame}
+
+\subsection{Beneficios de la modelación matemática}
+\begin{frame}
+\frametitle{Las matemáticas en la Ingeniería}
+\framesubtitle{Beneficios de la modelación matemática}
+La \textcolor{IPLAzul}{Modelación matemática} es tanto un dispositivo como un proceso académico que en el aula demuestra las siguientes ventajas:
+\begin{enumerate}[<+-| alert@+>]
+	\item Ayuda al estudiante a comprender mejor el escenario en el que se desarrolla.
+	\item Refuerza el aprendizaje de las matemáticas (motivación).
+	\item Estimula el desarrollo de algunas habilidades actitudinales de tipo matemático.
+	\item Coadyuva a tener una mejor óptica de las matemáticas.
+\end{enumerate}
+\end{frame}
+
+\ThankYouFrame
+
+\end{document}
